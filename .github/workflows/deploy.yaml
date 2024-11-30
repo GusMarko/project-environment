@@ -1,0 +1,39 @@
+name: "Deploy Networking resources"
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
+jobs:
+  ExecuteTerraformCode:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run python helper script
+        run: |
+          cd scripts
+          python3 configure_terraform_values.py
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Apply Resources
+        run: |
+          cd iac
+          terraform init
+          terraform apply -auto-approve
