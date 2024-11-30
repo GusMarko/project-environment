@@ -5,7 +5,7 @@ async function searchArtist() {
       return;
     }
   
-    // Example fetch request to API Gateway (adjust URL as needed)
+   
     const apiUrl = 'https://your-api-gateway-url/artist-songs?artist=' + encodeURIComponent(artist);
   
     try {
@@ -14,8 +14,8 @@ async function searchArtist() {
         throw new Error('Failed to fetch artist songs');
       }
   
-      const data = await response.json(); // Assuming the Lambda returns JSON
-      displaySongs(data.songs); // Assuming the response has a "songs" array
+      const data = await response.json(); 
+      displaySongs(data.songs); 
     } catch (error) {
       document.getElementById('output').innerHTML = `<p>Error: ${error.message}</p>`;
     }
@@ -23,7 +23,7 @@ async function searchArtist() {
   
   function displaySongs(songs) {
     const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = ''; // Clear previous output
+    outputDiv.innerHTML = ''; 
   
     if (!songs || songs.length === 0) {
       outputDiv.innerHTML = '<p>No songs found for this artist.</p>';
