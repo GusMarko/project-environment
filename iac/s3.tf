@@ -34,12 +34,8 @@ resource "aws_s3_bucket_public_access_block" "s3" {
 # Putting objects into s3 / if this doesnt work/ we will manually 
 resource "aws_s3_object" "object" {
   bucket = aws_s3_bucket.s3.id
-
-  for_each = fileset("website/", "**/*.*")
-
-  key          = each.value
-  source       = "website/${each.value}"
-  content_type = each.value
+  key          = "website"
+  source       = "./website"
 
    depends_on = [aws_s3_bucket.s3, aws_s3_bucket_website_configuration.s3_web]
 }
