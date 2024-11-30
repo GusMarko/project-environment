@@ -8,7 +8,7 @@ AWS_REGION = os.environ.get("AWS_REGION")
 
 
 def main():
-    curr_env = get_Environment()
+    curr_env = get_environment()
     replace_placeholders(curr_env)
 
 def replace_placeholders(curr_env):
