@@ -20,27 +20,16 @@ resource "aws_s3_bucket_website_configuration" "s3_web" {
     key = "error.html"
   }
 }
-
-# allowing access to s3 objects
-resource "aws_s3_bucket_policy" "this" {
+# Denie public access
+resource "aws_s3_bucket_public_access_block" "s3" {
   bucket = aws_s3_bucket.s3.id
 
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Id      = "AllowGetObjects"
-    Statement = [
-      {
-        Sid       = "AllowPublic"
-        Effect    = "Allow"
-         Principal = {
-          AWS = "${aws_cloudfront_origin_access_control.cdn_oac.id}"
-        }
-        Action    = "s3:GetObject"
-        Resource  = "${aws_s3_bucket.s3.arn}/**"
-      }
-    ]
-  })
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
+
 
 # Putting objects into s3 / if this doesnt work/ we will manually 
 resource "aws_s3_object" "object" {
