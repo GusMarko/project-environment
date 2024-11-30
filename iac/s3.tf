@@ -8,13 +8,6 @@ resource "aws_s3_bucket" "s3" {
   }
 }
 
-# s3 acl / private
-resource "aws_s3_bucket_acl" "s3_acl" {
-  bucket = aws_s3_bucket.s3.id
-  acl    = "private"
-}
-
-
 # website configuration / cloudfront will do the same
 resource "aws_s3_bucket_website_configuration" "s3_web" {
   bucket = aws_s3_bucket.s3.bucket

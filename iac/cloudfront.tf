@@ -25,7 +25,7 @@ resource "aws_cloudfront_distribution" "cdn" {
       query_string = true
 
       cookies {
-        forward = "false"
+        forward = "none"
       }
     }
     viewer_protocol_policy = "allow-all"
