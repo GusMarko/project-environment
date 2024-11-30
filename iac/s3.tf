@@ -33,7 +33,7 @@ resource "aws_s3_bucket_policy" "this" {
         Sid       = "AllowPublic"
         Effect    = "Allow"
          Principal = {
-          AWS = "${aws_cloudfront_origin_access_control.cdn_oac.arn}"
+          AWS = "${aws_cloudfront_origin_access_control.cdn_oac.id}"
         }
         Action    = "s3:GetObject"
         Resource  = "${aws_s3_bucket.s3.arn}/**"
