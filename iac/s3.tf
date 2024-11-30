@@ -30,18 +30,6 @@ resource "aws_s3_bucket_public_access_block" "s3" {
   restrict_public_buckets = true
 }
 
-
-# Putting objects into s3 / if this doesnt work/ we will manually 
-resource "aws_s3_object" "object" {
-  bucket = aws_s3_bucket.s3.id
-  key          = "website/${self.value}"
-  source       = "../website"
-
-   depends_on = [aws_s3_bucket.s3, aws_s3_bucket_website_configuration.s3_web]
-}
-
-
-
 # Allow access to s3 from cloudfront
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
