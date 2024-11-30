@@ -39,6 +39,9 @@ resource "aws_s3_object" "object" {
 
   key          = each.value
   source       = "website/${each.value}"
+  content_type = each.value
+
+   depends_on = [aws_s3_bucket.s3, aws_s3_bucket_website_configuration.s3_web]
 }
 
 
