@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1DB954; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  button {
+    background-color: white;
+    color: #1DB954;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #14833B; 
+    color: white;
+  }
+  
+  .output-container {
+    margin-top: 30px;
+  }
+  
+  .song {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px auto;
+    width: 60%;
+    border-radius: 5px;
+    text-align: left;
+  }
+  
