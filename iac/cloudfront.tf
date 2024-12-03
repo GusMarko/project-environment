@@ -1,6 +1,6 @@
 # Cloudfront configuration
 resource "aws_cloudfront_origin_access_control" "cdn_oac" {
-  name = "CloudFront s3"
+  name = "CloudFront-project-oac-mg"
   origin_access_control_origin_type = "s3"
   signing_behavior = "always"
   signing_protocol = "sigv4"
