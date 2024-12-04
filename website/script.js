@@ -6,7 +6,7 @@ async function searchArtist() {
     }
   
    
-    const apiUrl = 'https://your-api-gateway-url/artist-songs?artist=' + encodeURIComponent(artist);
+    const apiUrl = 'https://llkc6n21e3.execute-api.eu-central-1.amazonaws.com/dev/artist-songs?artistName=' + encodeURIComponent(artist);
   
     try {
       const response = await fetch(apiUrl);
