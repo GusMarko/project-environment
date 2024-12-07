@@ -5,7 +5,7 @@ async function searchArtist() {
       return;
   }
 
-  const apiUrl = 'https://llkc6n21e3.execute-api.eu-central-1.amazonaws.com/dev/search?artist=' + encodeURIComponent(artist);
+  const apiUrl = 'https://jypfo098e9.execute-api.eu-central-1.amazonaws.com/dev/search?artist=' + encodeURIComponent(artist);
 
   const response = await fetch(apiUrl);
   const data = await response.json();
