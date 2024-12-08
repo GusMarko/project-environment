@@ -5,7 +5,7 @@ async function searchArtist() {
       return;
   }
 
-  const apiUrl = 'https://m30z22iiwg.execute-api.eu-central-1.amazonaws.com/dev/search?artist=' + encodeURIComponent(artist);
+  const apiUrl = 'https://m30z22iiwg.execute-api.eu-central-1.amazonaws.com/dev/search?artist=Drake'
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
