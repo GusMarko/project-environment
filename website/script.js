@@ -5,13 +5,18 @@ async function searchArtist() {
       return;
   }
 
-  const apiUrl = 'https://jypfo098e9.execute-api.eu-central-1.amazonaws.com/dev/search?artist=' + encodeURIComponent(artist);
-
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-  
-  // Display the songs
-  displaySongs(data.songs);
+  const apiUrl = 'https://m30z22iiwg.execute-api.eu-central-1.amazonaws.com/dev/search?artist=' + encodeURIComponent(artist);
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error('Error: ${response.status} - ${response.statusText}');
+    }
+    const data = await response.json();
+    displaySongs(data.songs);
+} catch (error) {
+  console.error('API call failed:', error);
+  alert('Failed to retrrieve songs');
+}
 }
 
 function displaySongs(songs) {
