@@ -32,7 +32,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Terminate Resources
+      - name: Terminate Resourcess
         run: |
           cd iac
           terraform init
